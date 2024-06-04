@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { DynamicMicrosoftClarityButton } from "./metrics/MicrosoftClarity";
 
 export default function Home() {
   return (
@@ -38,6 +39,9 @@ export default function Home() {
           priority
         />
       </div>
+
+      <DynamicMicrosoftClarityButton text="Click Me Event!" type="event" />
+      <DynamicMicrosoftClarityButton text="Click Me Set!" type="set" />
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a

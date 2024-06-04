@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NextHead from "next/head";
 import "./globals.css";
+import { Metrics } from "./metrics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <NextHead>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com"
+        />
+      </NextHead>
       <body className={inter.className}>{children}</body>
+      <Metrics />
     </html>
   );
 }
